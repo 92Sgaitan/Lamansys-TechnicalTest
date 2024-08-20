@@ -3,11 +3,10 @@ Feature: Login Gmail
 
 Scenario Outline: Inicio de sesion exitoso en la web de Gmail
   Given Un usuario navega por la web de Gmail
-  And Hace clic en Acceder
   And Completa el campo correo electronico o telefono "<emailTelefono>"
   And Hace clic en siguiente
   And Completa el campo contrasenia "<contrasenia>"
-  Then Hace clic en siguiente
+  Then Hace clic en siguiente contrasenia
   When Verificara la pagina de inicio
 
   Examples:
@@ -16,10 +15,9 @@ Scenario Outline: Inicio de sesion exitoso en la web de Gmail
 
   Scenario Outline: Inicio de sesion con correo o telefono erroneo en la web de Gmail
     Given Un usuario navega por la web de Gmail
-    And Hace clic en Acceder
     And Completa el campo correo electronico o telefono "<emailTelefono>"
     Then Hace clic en siguiente
-    When Visualizara un "<mensaje>" de validacion
+    When Visualizara un "<mensaje>" de validacion de correo o telefono erroneo
 
     Examples:
       | emailTelefono | mensaje                                                    |
@@ -31,12 +29,11 @@ Scenario Outline: Inicio de sesion exitoso en la web de Gmail
 
   Scenario Outline: Inicio de sesion con contrasenia erronea en la web de Gmail
     Given Un usuario navega por la web de Gmail
-    And Hace clic en Acceder
     And Completa el campo correo electronico o telefono "<emailTelefono>"
     And Hace clic en siguiente
     And Completa el campo contrasenia "<contrasenia>"
-    Then Hace clic en siguiente
-    When Visualizara un "<mensaje>" de validacion
+    Then Hace clic en siguiente contrasenia
+    When Visualizara un "<mensaje>" de validacion contrasenia erronea
 
     Examples:
       | emailTelefono             | contrasenia | mensaje                                                                                                        |

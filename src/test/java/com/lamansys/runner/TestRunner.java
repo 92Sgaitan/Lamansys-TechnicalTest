@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"scr.test.java.com.lamansys.steps"},
+        glue = {"com.lamansys.steps"},
         plugin = {"pretty",
                 "json:target/cucumber-reports/cucumber.json",
                 "html:target/cucumber-reports/cucumberreport.html"}
