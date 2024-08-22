@@ -9,15 +9,19 @@ import io.cucumber.java.en.When;
 public class GetProductosSteps {
 
     @Given("Un usuario accede a la url de obtencion de productos")
-    public void un_usuario_accede_a_la_url_de_obtencion_de_productos() {
+    public void accedeUrlObtencionProductos() {
         GetProductosPage.accedeUrlProducto();
     }
     @When("paso la url de los productos en el request")
-    public void paso_la_url_de_los_productos_en_el_request() throws Exception {
+    public void urlProductosEnRequest() throws Exception {
         GetProductosPage.pasarUrlRequestProducto();
     }
     @Then("Recibira un codigo de respuesta {int}")
-    public void recibira_un_codigo_de_respuesta(Integer int1) {
+    public void codigoDeRespuesta(Integer int1) {
         GetProductosPage.statusCodeProducto();
+    }
+    @Then("Verificar que el precio del primer producto sea {string}")
+    public void verificar_que_el_precio_del_primer_producto_sea(String precioPrimerProducto) {
+        GetProductosPage.precioPrimerProducto(precioPrimerProducto);
     }
 }
